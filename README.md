@@ -15,5 +15,4 @@ OTHER COMMENTS
 =====
 The user can give some personalization to this module:
 - To change the number of measurements over which the average time is computed, modify the variable "AVG_RECORDS" in "src/BXD_Controller/TimeRecord.h".
-- To change the maximum length of the label when being sent through telemetry, modify the variable "LABEL_LENGTH" in the same file as above.
 - To measure MILLISECONDS instead of MICROSECONDS, on the file "src/BXD_Controller/TimeRecord.cpp" change all "micros()" functions with "millis()".
