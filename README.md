@@ -11,31 +11,9 @@ INSTALL:
 3. Go to "path-to-Arduino-location/libraries/" and create a folder named "TimeRecord".
 4. Copy the files unzipped before into the recently created "TimeRecord" folder.
 
-EXAMPLE OF USAGE
-=====
-#include "TimeRecord.h"				// Include the module's header
-
-TimeRecord myTR("LABEL");			// Create a TimeRecord object. The constructor needs a label, which will be the record's ID.
-						// On the BXDrone, when sending this TimeRecord as telemetry, the label will be clipped to only 6 chars
-
-myTR.trigger();					// Start recording time
-
-/*** CODE TO BE MEASURED ***/
-
-myTR.stop();					// Stop recording time
-
-String label = myTR.getLabel();			// Retrieve the label of this TimeRecord (in this example, the returnin string should be 'LABEL')
-unsigned long rec = myTR.getTime();		// Retrieve the last recorded time
-unsigned long rec = myTR.getAvgTime();		// Get the average time over the last 1000 recordings
-unsigned long rec = myTR.getMaxTime();		// Get the maximum record overall
-
-myTR.resetMaxTRec();				// Call this function to set the maximum record to 0
-
-
 OTHER COMMENTS
 =====
 The user can give some personalization to this module:
 - To change the number of measurements over which the average time is computed, modify the variable "AVG_RECORDS" in "src/BXD_Controller/TimeRecord.h".
-
 - To change the maximum length of the label when being sent through telemetry, modify the variable "LABEL_LENGTH" in the same file as above.
 - To measure MILLISECONDS instead of MICROSECONDS, on the file "src/BXD_Controller/TimeRecord.cpp" change all "micros()" functions with "millis()".
